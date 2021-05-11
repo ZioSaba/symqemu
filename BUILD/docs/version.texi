@@ -1,0 +1,2 @@
+@set VERSION 4.1.1
+@set CONFDIR /usr/local/etc/qemu
