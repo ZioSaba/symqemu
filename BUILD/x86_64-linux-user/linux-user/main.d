@@ -179,7 +179,7 @@ linux-user/main.o: /home/zio-saba/Scrivania/symqemu/linux-user/main.c \
  /home/zio-saba/Scrivania/symqemu/include/exec/log.h \
  /home/zio-saba/Scrivania/symqemu/include/disas/disas.h \
  /home/zio-saba/Scrivania/symqemu/include/crypto/init.h \
- /home/zio-saba/Scrivania/symcc//runtime/RuntimeCommon.h
+ /home/zio-saba/Scrivania/symcc/runtime/RuntimeCommon.h
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h:
 
@@ -581,4 +581,4 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/crypto/init.h:
 
-/home/zio-saba/Scrivania/symcc//runtime/RuntimeCommon.h:
+/home/zio-saba/Scrivania/symcc/runtime/RuntimeCommon.h:

@@ -116,6 +116,10 @@ DEF_HELPER_BINARY(shift_right, logical_shift_right)
 DEF_HELPER_BINARY(arithmetic_shift_right, arithmetic_shift_right)
 DEF_HELPER_BINARY(shift_left, shift_left)
 
+/**** CODICE MIO ****/
+DEF_HELPER_BINARY(FloatingPointAdd, FloatingPointAdd)
+/********************/
+
 void *HELPER(sym_neg)(void *expr)
 {
     if (expr == NULL)

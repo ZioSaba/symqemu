@@ -48,6 +48,10 @@ SYM_HELPER_BINARY(rem)
 SYM_HELPER_BINARY(remu)
 DEF_HELPER_FLAGS_1(sym_neg, TCG_CALL_NO_RWG_SE, ptr, ptr)
 
+/**** CODICE MIO ****/
+SYM_HELPER_BINARY(FloatingPointAdd)
+/********************/
+
 /* Shifts */
 SYM_HELPER_BINARY(shift_right)
 SYM_HELPER_BINARY(arithmetic_shift_right)

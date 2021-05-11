@@ -150,7 +150,7 @@ accel/tcg/tcg-runtime-sym.o: \
  /home/zio-saba/Scrivania/symqemu/trace/mem-internal.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/qemu-print.h \
  /home/zio-saba/Scrivania/symqemu/tcg/tcg.h \
- /home/zio-saba/Scrivania/symcc//runtime/RuntimeCommon.h
+ /home/zio-saba/Scrivania/symcc/runtime/RuntimeCommon.h
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h:
 
@@ -488,4 +488,4 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/tcg/tcg.h:
 
-/home/zio-saba/Scrivania/symcc//runtime/RuntimeCommon.h:
+/home/zio-saba/Scrivania/symcc/runtime/RuntimeCommon.h:
