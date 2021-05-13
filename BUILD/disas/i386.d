@@ -1,7 +1,6 @@
-disas/i386.o: /home/zio-saba/Scrivania/symqemu/disas/i386.c \
- /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h config-host.h \
- /home/zio-saba/Scrivania/symqemu/include/exec/poison.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h \
+../disas/i386.o: /home/zio-saba/Scrivania/symqemu/BUILD/../disas/i386.c \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h ../config-host.h \
+ config-target.h /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h \
  /home/zio-saba/Scrivania/symqemu/include/sysemu/os-posix.h \
  /home/zio-saba/Scrivania/symqemu/include/glib-compat.h \
  /usr/include/glib-2.0/glib.h /usr/include/glib-2.0/glib/galloca.h \
@@ -78,9 +77,9 @@ disas/i386.o: /home/zio-saba/Scrivania/symqemu/disas/i386.c \
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h:
 
-config-host.h:
+../config-host.h:
 
-/home/zio-saba/Scrivania/symqemu/include/exec/poison.h:
+config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h:
 

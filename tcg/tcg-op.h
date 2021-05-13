@@ -702,12 +702,12 @@ static inline void tcg_gen_mul_i64(TCGv_i64 ret, TCGv_i64 arg1, TCGv_i64 arg2)
     tcg_gen_op3_i64(INDEX_op_mul_i64, ret, arg1, arg2);
 }
 
-/*** CODICE MIO ***/
+/**** CODICE MIO ****/
 static inline void tcg_gen_FloatingPointAdd_i64(TCGv_i64 ret, TCGv_i64 arg1, TCGv_i64 arg2)
 {
     SYM_HELPER_BINARY_64(FloatingPointAdd);
 }
-/******************/
+/********************/
 
 
 #else /* TCG_TARGET_REG_BITS == 32 */
