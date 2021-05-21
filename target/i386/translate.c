@@ -4472,6 +4472,10 @@ static void gen_sse(CPUX86State *env, DisasContext *s, int b,
         default:
             tcg_gen_addi_ptr(s->ptr0, cpu_env, op1_offset);
             tcg_gen_addi_ptr(s->ptr1, cpu_env, op2_offset);
+            //tcg_gen_FloatingPointAdd_i64(cpu_env, s->ptr0, s->ptr1);
+            if(sse_fn_epp == gen_helper_addss){
+                tcg_gen_FloatingPointAdd_i64(cpu_env, s->ptr0, s->ptr1);
+            }
             sse_fn_epp(cpu_env, s->ptr0, s->ptr1);
             break;
         }
@@ -8565,6 +8569,7 @@ static bool i386_tr_breakpoint_check(DisasContextBase *dcbase, CPUState *cpu,
     }
 }
 
+// PARTI DA QUI!
 static void i386_tr_translate_insn(DisasContextBase *dcbase, CPUState *cpu)
 {
     DisasContext *dc = container_of(dcbase, DisasContext, base);
