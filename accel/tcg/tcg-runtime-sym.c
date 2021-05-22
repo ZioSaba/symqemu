@@ -117,11 +117,12 @@ DEF_HELPER_BINARY(arithmetic_shift_right, arithmetic_shift_right)
 DEF_HELPER_BINARY(shift_left, shift_left)
 
 /**** CODICE MIO ****/
+/*
 void *HELPER(sym_FloatingPointAdd_i64)(void* arg1_expr, void* arg2_expr){
     return _sym_build_FloatingPointAdd(arg1_expr, arg2_expr);
-}
+}*/
 
-//DEF_HELPER_BINARY(FloatingPointAdd, FloatingPointAdd)
+DEF_HELPER_BINARY(FloatingPointAdd, FloatingPointAdd)
 /********************/
 
 void *HELPER(sym_neg)(void *expr)
