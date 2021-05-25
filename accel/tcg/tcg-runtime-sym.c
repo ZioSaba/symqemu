@@ -120,10 +120,13 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 
 void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 {
-    printf("PROVA\n");
+    // lettura memoria simbolica
+    // invocazione expr_builder
+    // scrittura memoria simbolica
+    
+    //printf("PROVA\n");
 }
 
-//DEF_HELPER_BINARY(FloatingPointAdd, FloatingPointAdd)
 /********************/
 
 void *HELPER(sym_neg)(void *expr)
