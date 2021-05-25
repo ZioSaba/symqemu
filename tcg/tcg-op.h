@@ -708,11 +708,11 @@ static inline void tcg_gen_FloatingPointAdd_i64(TCGv_env cpu_env, TCGv_ptr arg1,
 {
     gen_helper_sym_FloatingPointAdd_i64(cpu_env, arg1, arg2);
 }*/
-
+/*
 static inline void tcg_gen_FloatingPointAdd_i64(TCGv_i64 ret, TCGv_i64 arg1, TCGv_i64 arg2)
 {
     SYM_HELPER_BINARY_64(FloatingPointAdd);
-}
+}*/
 
 /********************/
 
