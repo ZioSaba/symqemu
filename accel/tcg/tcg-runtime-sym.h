@@ -50,6 +50,7 @@ DEF_HELPER_FLAGS_1(sym_neg, TCG_CALL_NO_RWG_SE, ptr, ptr)
 
 /**** CODICE MIO ****/
 DEF_HELPER_3(sym_addss, void, env, ZMMReg, ZMMReg)
+DEF_HELPER_3(sym_cvtsi2ss, void, env, ZMMReg, i32)
 /********************/
 
 /* Shifts */

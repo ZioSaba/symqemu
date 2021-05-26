@@ -121,17 +121,29 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 {
     // lettura memoria simbolica
-    SymExpr sorgente = _sym_read_memory((uint8_t*)src, sizeof(int), true);
+    SymExpr sorgente = _sym_read_memory((uint8_t*)src, sizeof(int), false);
     if (sorgente == NULL){
         printf("Il contenuto è concreto\n");
     }
 
+    
+    //SymExpr a = _sym_build_integer(100, 32);
+    //SymExpr b = _sym_build_integer(10, 32);
+    //SymExpr res = _sym_build_add(a, b);
+    //printf("%s\n", _sym_expr_to_string(res)); // mostra il valore in HEX dell'espressione simbolica
+    //return _sym_build_addss(a, a);
+    
     // invocazione expr_builder
     // scrittura memoria simbolica
     
     //printf("PROVA\n");
 }
 
+void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, uint32_t src)
+{
+    // src va castata a TCGv_i32???
+    printf("qualcosa\n");
+}
 /********************/
 
 void *HELPER(sym_neg)(void *expr)

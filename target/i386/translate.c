@@ -3533,6 +3533,7 @@ static void gen_sse(CPUX86State *env, DisasContext *s, int b,
             if (ot == MO_32) {
                 SSEFunc_0_epi sse_fn_epi = sse_op_table3ai[(b >> 8) & 1];
                 tcg_gen_trunc_tl_i32(s->tmp2_i32, s->T0);
+                gen_helper_sym_cvtsi2ss(cpu_env, s->ptr0, s->tmp2_i32);
                 sse_fn_epi(cpu_env, s->ptr0, s->tmp2_i32);
             } else {
 #ifdef TARGET_X86_64
