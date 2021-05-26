@@ -121,6 +121,11 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 {
     // lettura memoria simbolica
+    SymExpr sorgente = _sym_read_memory((uint8_t*)src, sizeof(int), true);
+    if (sorgente == NULL){
+        printf("Il contenuto è concreto\n");
+    }
+
     // invocazione expr_builder
     // scrittura memoria simbolica
     
