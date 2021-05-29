@@ -120,12 +120,12 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 
 void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 {
+    //env->xmm_regs[dst];
+    
     // lettura memoria simbolica
-    SymExpr sorgente = _sym_read_memory((uint8_t*)src, sizeof(int), false);
-    if (sorgente == NULL){
-        printf("Il contenuto è concreto\n");
-    }
-
+    int val = (int) src->ZMM_L(0);
+    printf("src = %d\n", val);
+    //d->ZMM_D(0)
     
     //SymExpr a = _sym_build_integer(100, 32);
     //SymExpr b = _sym_build_integer(10, 32);
@@ -139,10 +139,20 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
     //printf("PROVA\n");
 }
 
-void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, uint32_t src)
+void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
 {
-    // src va castata a TCGv_i32???
-    printf("qualcosa\n");
+    // se expr == NULL -> bisogna settare dst come concreta (tutti e 16 i byte)
+    if (expr == NULL){
+        printf("conversione simbolica concreta\n");
+        _sym_write_memory((uint8_t*)dst, 4*sizeof(int), 0, true);
+    }
+
+    // se expr != NULL -> bisogna creare l'espressione simbolica che modella int_to_float
+    else{
+        printf("conversion simbolica ok\n");
+    }
+   
+    //printf("qualcosa\n");
 }
 /********************/
 
