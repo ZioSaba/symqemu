@@ -123,15 +123,13 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
     //env->xmm_regs[dst];
     
     // lettura memoria simbolica
-    int val = (int) src->ZMM_L(0);
-    printf("src = %d\n", val);
+    //int val = (int) src->ZMM_L(0);
+    //printf("src = %d\n", val);
     //d->ZMM_D(0)
     
     //SymExpr a = _sym_build_integer(100, 32);
-    //SymExpr b = _sym_build_integer(10, 32);
-    //SymExpr res = _sym_build_add(a, b);
+    //SymExpr res = _sym_build_addss(a, a);
     //printf("%s\n", _sym_expr_to_string(res)); // mostra il valore in HEX dell'espressione simbolica
-    //return _sym_build_addss(a, a);
     
     // invocazione expr_builder
     // scrittura memoria simbolica
@@ -143,13 +141,15 @@ void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
 {
     // se expr == NULL -> bisogna settare dst come concreta (tutti e 16 i byte)
     if (expr == NULL){
-        printf("conversione simbolica concreta\n");
-        _sym_write_memory((uint8_t*)dst, 4*sizeof(int), 0, true);
+        //printf("conversione simbolica concreta\n");
+        _sym_write_memory((uint8_t*)dst, 4*sizeof(int), NULL, true);
     }
 
     // se expr != NULL -> bisogna creare l'espressione simbolica che modella int_to_float
     else{
         printf("conversion simbolica ok\n");
+        SymExpr symbolic = _sym_build_cvtsi2ss(expr);
+        // scrittura in memoria
     }
    
     //printf("qualcosa\n");
