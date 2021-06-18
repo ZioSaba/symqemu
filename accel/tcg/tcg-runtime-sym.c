@@ -140,7 +140,7 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
         printf("la sorgente è concreta\n");
     }
     else{
-        printf("la sorgente è simbolica\n");
+        printf("la sorgente è simbolica -> ");
         printf("%s\n", _sym_expr_to_string(sorgente));
     }
 
@@ -158,10 +158,10 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
     // doppia simbolica: TODO
     // doppia concreta: TODO
     if (sorgente == NULL && destinazione != NULL){
-        printf("qualcosa2\n");
+        sorgente = _sym_build_floating_point(0.0, 0);
     }
     else if (destinazione == NULL && sorgente != NULL){
-        printf("qualcosa\n");
+        destinazione = _sym_build_floating_point(0.0, 0);
     }
 
 }
