@@ -134,7 +134,7 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
     // invocazione expr_builder
     // scrittura memoria simbolica
 
-    printf("ora sto leggendo per la addss\n");
+    printf("ADDSS\n");
     SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
     if (sorgente == NULL){
         printf("la sorgente è concreta\n");
@@ -158,25 +158,34 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
     // doppia simbolica: TODO
     // doppia concreta: TODO
     if (sorgente == NULL && destinazione != NULL){
-        sorgente = _sym_build_floating_point(0.0, 0);
+        sorgente = _sym_build_floating_point((float) src->ZMM_L(0), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
     }
     else if (destinazione == NULL && sorgente != NULL){
-        destinazione = _sym_build_floating_point(0.0, 0);
+        destinazione = _sym_build_floating_point((float) dst->ZMM_L(0), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
     }
 
+
+    SymExpr res = _sym_build_addss(sorgente, destinazione);
+    printf("risultato -> %s\n", _sym_expr_to_string(res));
+    _sym_write_memory((uint8_t*)dst, sizeof(int), res, true);
+    destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+    printf("conclusione addss -> %s\n", _sym_expr_to_string(destinazione));
 }
 
 void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
 {
+    printf("CVTSI2SS\n");
     // se expr == NULL -> bisogna settare dst come concreta (tutti e 16 i byte)
     if (expr == NULL){
-        //printf("conversione simbolica concreta\n");
+        printf("espressione ricevuta in ingresso alla cvtsi2ss concreta\n");
         _sym_write_memory((uint8_t*)dst, 4*sizeof(int), NULL, true);
     }
 
     // se expr != NULL -> bisogna creare l'espressione simbolica che modella int_to_float
     else{
-        //printf("espressione ricevuta in ingresso alla cvtsi2ss non concreta\n");
+        printf("espressione ricevuta in ingresso alla cvtsi2ss non concreta\n");
         //printf("%s\n", _sym_expr_to_string(expr));
         
         SymExpr symbolic = _sym_build_cvtsi2ss(expr);
@@ -184,7 +193,7 @@ void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
             //printf("c'è un errore in build cvtsi2ss\n");
         }
         else{
-            //printf("generata espressione simbolica per la cvtsi2ss\n");
+            printf("generata espressione simbolica per la cvtsi2ss\n");
             //printf("%s\n", _sym_expr_to_string(symbolic));
             
             // scrittura in memoria
