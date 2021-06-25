@@ -178,7 +178,7 @@ target/i386/cpu.o: /home/zio-saba/Scrivania/symqemu/target/i386/cpu.c \
  /home/zio-saba/Scrivania/symqemu/capstone/include/systemz.h \
  /home/zio-saba/Scrivania/symqemu/capstone/include/x86.h \
  /home/zio-saba/Scrivania/symqemu/capstone/include/xcore.h \
- /home/zio-saba/Scrivania/symcc/runtime/RuntimeCommon.h
+ /home/zio-saba/Scrivania/symcc//runtime/RuntimeCommon.h
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h:
 
@@ -586,4 +586,4 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/capstone/include/xcore.h:
 
-/home/zio-saba/Scrivania/symcc/runtime/RuntimeCommon.h:
+/home/zio-saba/Scrivania/symcc//runtime/RuntimeCommon.h:

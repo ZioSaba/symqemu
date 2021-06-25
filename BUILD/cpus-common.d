@@ -1,6 +1,8 @@
-../cpus-common.o: /home/zio-saba/Scrivania/symqemu/BUILD/../cpus-common.c \
- /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h ../config-host.h \
- config-target.h /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h \
+cpus-common.o: /home/zio-saba/Scrivania/symqemu/cpus-common.c \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h \
+ /home/zio-saba/Scrivania/symqemu/BUILD/./config-host.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/poison.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h \
  /home/zio-saba/Scrivania/symqemu/include/sysemu/os-posix.h \
  /home/zio-saba/Scrivania/symqemu/include/glib-compat.h \
  /usr/include/glib-2.0/glib.h /usr/include/glib-2.0/glib/galloca.h \
@@ -90,29 +92,29 @@
  /home/zio-saba/Scrivania/symqemu/include/qemu/notify.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h \
  /home/zio-saba/Scrivania/symqemu/include/exec/cpu-common.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h \
  /home/zio-saba/Scrivania/symqemu/include/qom/cpu.h \
  /home/zio-saba/Scrivania/symqemu/include/hw/qdev-core.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/bitmap.h \
  /home/zio-saba/Scrivania/symqemu/include/qom/object.h \
- ../qapi/qapi-builtin-types.h \
+ /home/zio-saba/Scrivania/symqemu/BUILD/./qapi/qapi-builtin-types.h \
  /home/zio-saba/Scrivania/symqemu/include/qapi/util.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/module.h \
  /home/zio-saba/Scrivania/symqemu/include/hw/irq.h \
  /home/zio-saba/Scrivania/symqemu/include/hw/hotplug.h \
  /home/zio-saba/Scrivania/symqemu/include/sysemu/sysemu.h \
- ../qapi/qapi-types-run-state.h \
+ /home/zio-saba/Scrivania/symqemu/BUILD/./qapi/qapi-types-run-state.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/uuid.h \
  /home/zio-saba/Scrivania/symqemu/include/disas/dis-asm.h \
- /home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h \
  /home/zio-saba/Scrivania/symqemu/include/exec/memattrs.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/rcu_queue.h \
  /home/zio-saba/Scrivania/symqemu/include/sysemu/cpus.h
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h:
 
-../config-host.h:
+/home/zio-saba/Scrivania/symqemu/BUILD/./config-host.h:
 
-config-target.h:
+/home/zio-saba/Scrivania/symqemu/include/exec/poison.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h:
 
@@ -324,6 +326,8 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/exec/cpu-common.h:
 
+/home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h:
+
 /home/zio-saba/Scrivania/symqemu/include/qom/cpu.h:
 
 /home/zio-saba/Scrivania/symqemu/include/hw/qdev-core.h:
@@ -332,7 +336,7 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qom/object.h:
 
-../qapi/qapi-builtin-types.h:
+/home/zio-saba/Scrivania/symqemu/BUILD/./qapi/qapi-builtin-types.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qapi/util.h:
 
@@ -344,13 +348,11 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/sysemu/sysemu.h:
 
-../qapi/qapi-types-run-state.h:
+/home/zio-saba/Scrivania/symqemu/BUILD/./qapi/qapi-types-run-state.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/uuid.h:
 
 /home/zio-saba/Scrivania/symqemu/include/disas/dis-asm.h:
-
-/home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h:
 
 /home/zio-saba/Scrivania/symqemu/include/exec/memattrs.h:
 

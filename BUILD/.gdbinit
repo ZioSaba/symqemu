@@ -1,1 +1,0 @@
-/home/zio-saba/Scrivania/symqemu/.gdbinit

@@ -701,7 +701,6 @@ static inline void tcg_gen_mul_i64(TCGv_i64 ret, TCGv_i64 arg1, TCGv_i64 arg2)
     SYM_HELPER_BINARY_64(mul);
     tcg_gen_op3_i64(INDEX_op_mul_i64, ret, arg1, arg2);
 }
-
 #else /* TCG_TARGET_REG_BITS == 32 */
 static inline void tcg_gen_st8_i64(TCGv_i64 arg1, TCGv_ptr arg2,
                                    tcg_target_long offset)

@@ -1,7 +1,7 @@
-../hw/core/qdev.o: \
- /home/zio-saba/Scrivania/symqemu/BUILD/../hw/core/qdev.c \
- /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h ../config-host.h \
- config-target.h /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h \
+hw/core/qdev.o: /home/zio-saba/Scrivania/symqemu/hw/core/qdev.c \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h config-host.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/poison.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h \
  /home/zio-saba/Scrivania/symqemu/include/sysemu/os-posix.h \
  /home/zio-saba/Scrivania/symqemu/include/glib-compat.h \
  /usr/include/glib-2.0/glib.h /usr/include/glib-2.0/glib/galloca.h \
@@ -76,47 +76,55 @@
  /home/zio-saba/Scrivania/symqemu/include/hw/qdev.h \
  /home/zio-saba/Scrivania/symqemu/include/hw/hw.h \
  /home/zio-saba/Scrivania/symqemu/include/exec/cpu-common.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h \
  /home/zio-saba/Scrivania/symqemu/include/qom/object.h \
- ../qapi/qapi-builtin-types.h \
+ qapi/qapi-builtin-types.h \
  /home/zio-saba/Scrivania/symqemu/include/qapi/util.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/queue.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/atomic.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/module.h \
  /home/zio-saba/Scrivania/symqemu/include/exec/memory.h \
- /home/zio-saba/Scrivania/symqemu/include/hw/irq.h \
- /home/zio-saba/Scrivania/symqemu/include/migration/vmstate.h \
- /home/zio-saba/Scrivania/symqemu/include/migration/qemu-file-types.h \
- /home/zio-saba/Scrivania/symqemu/include/sysemu/reset.h \
- /home/zio-saba/Scrivania/symqemu/include/hw/qdev-core.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/bitmap.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/bitops.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/bswap.h \
- /home/zio-saba/Scrivania/symqemu/include/fpu/softfloat-types.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/atomic.h \
- /home/zio-saba/Scrivania/symqemu/include/hw/hotplug.h \
- /home/zio-saba/Scrivania/symqemu/include/sysemu/sysemu.h \
- ../qapi/qapi-types-run-state.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/timer.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/notify.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/main-loop.h \
- /home/zio-saba/Scrivania/symqemu/include/block/aio.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/event_notifier.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/memattrs.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/ramlist.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/thread.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/processor.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/thread-posix.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/qsp.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/rcu.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/sys_membarrier.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/rcu_queue.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/int128.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/bswap.h \
+ /home/zio-saba/Scrivania/symqemu/include/fpu/softfloat-types.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/notify.h \
+ /home/zio-saba/Scrivania/symqemu/include/hw/qdev-core.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/bitmap.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/bitops.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/atomic.h \
+ /home/zio-saba/Scrivania/symqemu/include/hw/irq.h \
+ /home/zio-saba/Scrivania/symqemu/include/hw/hotplug.h \
+ /home/zio-saba/Scrivania/symqemu/include/sysemu/sysemu.h \
+ qapi/qapi-types-run-state.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/timer.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/main-loop.h \
+ /home/zio-saba/Scrivania/symqemu/include/block/aio.h \
+ /home/zio-saba/Scrivania/symqemu/include/qemu/event_notifier.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/uuid.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/memory_ldst.inc.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/memory_ldst_phys.inc.h \
+ /home/zio-saba/Scrivania/symqemu/include/exec/memory_ldst_cached.inc.h \
+ /home/zio-saba/Scrivania/symqemu/include/migration/vmstate.h \
+ /home/zio-saba/Scrivania/symqemu/include/migration/qemu-file-types.h \
+ /home/zio-saba/Scrivania/symqemu/include/sysemu/reset.h \
  /home/zio-saba/Scrivania/symqemu/include/hw/qdev-properties.h \
- ../qapi/qapi-types-block.h ../qapi/qapi-types-block-core.h \
- ../qapi/qapi-types-common.h ../qapi/qapi-types-crypto.h \
- ../qapi/qapi-types-job.h ../qapi/qapi-types-sockets.h \
- ../qapi/qapi-types-misc.h \
+ qapi/qapi-types-block.h qapi/qapi-types-block-core.h \
+ qapi/qapi-types-common.h qapi/qapi-types-crypto.h qapi/qapi-types-job.h \
+ qapi/qapi-types-sockets.h qapi/qapi-types-misc.h \
  /home/zio-saba/Scrivania/symqemu/include/qapi/error.h \
- ../qapi/qapi-types-common.h ../qapi/qapi-events-qdev.h \
- ../qapi/qapi-events-qom.h ../qapi/qapi-types-qom.h \
- ../qapi/qapi-types-qdev.h \
+ qapi/qapi-types-common.h qapi/qapi-events-qdev.h qapi/qapi-events-qom.h \
+ qapi/qapi-types-qom.h qapi/qapi-types-qdev.h \
  /home/zio-saba/Scrivania/symqemu/include/qapi/qmp/qerror.h \
  /home/zio-saba/Scrivania/symqemu/include/qapi/visitor.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/error-report.h \
@@ -124,7 +132,7 @@
  /home/zio-saba/Scrivania/symqemu/include/hw/boards.h \
  /home/zio-saba/Scrivania/symqemu/include/sysemu/blockdev.h \
  /home/zio-saba/Scrivania/symqemu/include/block/block.h \
- ../qapi/qapi-types-block-core.h \
+ qapi/qapi-types-block-core.h \
  /home/zio-saba/Scrivania/symqemu/include/block/aio-wait.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/iov.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/coroutine.h \
@@ -138,19 +146,16 @@
  /home/zio-saba/Scrivania/symqemu/include/qemu/job.h \
  /home/zio-saba/Scrivania/symqemu/include/qemu/ratelimit.h \
  /home/zio-saba/Scrivania/symqemu/include/sysemu/accel.h \
- /home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h \
- ../qapi/qapi-types-machine.h \
+ qapi/qapi-types-machine.h \
  /home/zio-saba/Scrivania/symqemu/include/qom/cpu.h \
  /home/zio-saba/Scrivania/symqemu/include/disas/dis-asm.h \
- /home/zio-saba/Scrivania/symqemu/include/exec/memattrs.h \
- /home/zio-saba/Scrivania/symqemu/include/qemu/rcu_queue.h \
  /home/zio-saba/Scrivania/symqemu/include/hw/sysbus.h
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/osdep.h:
 
-../config-host.h:
+config-host.h:
 
-config-target.h:
+/home/zio-saba/Scrivania/symqemu/include/exec/poison.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/compiler.h:
 
@@ -332,9 +337,11 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/exec/cpu-common.h:
 
+/home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h:
+
 /home/zio-saba/Scrivania/symqemu/include/qom/object.h:
 
-../qapi/qapi-builtin-types.h:
+qapi/qapi-builtin-types.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qapi/util.h:
 
@@ -346,45 +353,9 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/exec/memory.h:
 
-/home/zio-saba/Scrivania/symqemu/include/hw/irq.h:
+/home/zio-saba/Scrivania/symqemu/include/exec/memattrs.h:
 
-/home/zio-saba/Scrivania/symqemu/include/migration/vmstate.h:
-
-/home/zio-saba/Scrivania/symqemu/include/migration/qemu-file-types.h:
-
-/home/zio-saba/Scrivania/symqemu/include/sysemu/reset.h:
-
-/home/zio-saba/Scrivania/symqemu/include/hw/qdev-core.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/bitmap.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/bitops.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/bswap.h:
-
-/home/zio-saba/Scrivania/symqemu/include/fpu/softfloat-types.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/atomic.h:
-
-/home/zio-saba/Scrivania/symqemu/include/hw/hotplug.h:
-
-/home/zio-saba/Scrivania/symqemu/include/sysemu/sysemu.h:
-
-../qapi/qapi-types-run-state.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/timer.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/notify.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/main-loop.h:
-
-/home/zio-saba/Scrivania/symqemu/include/block/aio.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/event_notifier.h:
+/home/zio-saba/Scrivania/symqemu/include/exec/ramlist.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/thread.h:
 
@@ -394,35 +365,89 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qemu/qsp.h:
 
+/home/zio-saba/Scrivania/symqemu/include/qemu/rcu.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/sys_membarrier.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/rcu_queue.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/int128.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/bswap.h:
+
+/home/zio-saba/Scrivania/symqemu/include/fpu/softfloat-types.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/notify.h:
+
+/home/zio-saba/Scrivania/symqemu/include/hw/qdev-core.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/bitmap.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/bitops.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/atomic.h:
+
+/home/zio-saba/Scrivania/symqemu/include/hw/irq.h:
+
+/home/zio-saba/Scrivania/symqemu/include/hw/hotplug.h:
+
+/home/zio-saba/Scrivania/symqemu/include/sysemu/sysemu.h:
+
+qapi/qapi-types-run-state.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/timer.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/host-utils.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/main-loop.h:
+
+/home/zio-saba/Scrivania/symqemu/include/block/aio.h:
+
+/home/zio-saba/Scrivania/symqemu/include/qemu/event_notifier.h:
+
 /home/zio-saba/Scrivania/symqemu/include/qemu/uuid.h:
+
+/home/zio-saba/Scrivania/symqemu/include/exec/memory_ldst.inc.h:
+
+/home/zio-saba/Scrivania/symqemu/include/exec/memory_ldst_phys.inc.h:
+
+/home/zio-saba/Scrivania/symqemu/include/exec/memory_ldst_cached.inc.h:
+
+/home/zio-saba/Scrivania/symqemu/include/migration/vmstate.h:
+
+/home/zio-saba/Scrivania/symqemu/include/migration/qemu-file-types.h:
+
+/home/zio-saba/Scrivania/symqemu/include/sysemu/reset.h:
 
 /home/zio-saba/Scrivania/symqemu/include/hw/qdev-properties.h:
 
-../qapi/qapi-types-block.h:
+qapi/qapi-types-block.h:
 
-../qapi/qapi-types-block-core.h:
+qapi/qapi-types-block-core.h:
 
-../qapi/qapi-types-common.h:
+qapi/qapi-types-common.h:
 
-../qapi/qapi-types-crypto.h:
+qapi/qapi-types-crypto.h:
 
-../qapi/qapi-types-job.h:
+qapi/qapi-types-job.h:
 
-../qapi/qapi-types-sockets.h:
+qapi/qapi-types-sockets.h:
 
-../qapi/qapi-types-misc.h:
+qapi/qapi-types-misc.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qapi/error.h:
 
-../qapi/qapi-types-common.h:
+qapi/qapi-types-common.h:
 
-../qapi/qapi-events-qdev.h:
+qapi/qapi-events-qdev.h:
 
-../qapi/qapi-events-qom.h:
+qapi/qapi-events-qom.h:
 
-../qapi/qapi-types-qom.h:
+qapi/qapi-types-qom.h:
 
-../qapi/qapi-types-qdev.h:
+qapi/qapi-types-qdev.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qapi/qmp/qerror.h:
 
@@ -438,7 +463,7 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/block/block.h:
 
-../qapi/qapi-types-block-core.h:
+qapi/qapi-types-block-core.h:
 
 /home/zio-saba/Scrivania/symqemu/include/block/aio-wait.h:
 
@@ -466,16 +491,10 @@ config-target.h:
 
 /home/zio-saba/Scrivania/symqemu/include/sysemu/accel.h:
 
-/home/zio-saba/Scrivania/symqemu/include/exec/hwaddr.h:
-
-../qapi/qapi-types-machine.h:
+qapi/qapi-types-machine.h:
 
 /home/zio-saba/Scrivania/symqemu/include/qom/cpu.h:
 
 /home/zio-saba/Scrivania/symqemu/include/disas/dis-asm.h:
-
-/home/zio-saba/Scrivania/symqemu/include/exec/memattrs.h:
-
-/home/zio-saba/Scrivania/symqemu/include/qemu/rcu_queue.h:
 
 /home/zio-saba/Scrivania/symqemu/include/hw/sysbus.h:
