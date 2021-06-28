@@ -120,86 +120,55 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 
 void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 {
-    //env->xmm_regs[dst];
-    
-    // lettura memoria simbolica
-    //int val = (int) src->ZMM_L(0);
-    //printf("src = %d\n", val);
-    //d->ZMM_D(0)
-    
-    //SymExpr a = _sym_build_integer(100, 32);
-    //SymExpr res = _sym_build_addss(a, a);
-    //printf("%s\n", _sym_expr_to_string(res)); // mostra il valore in HEX dell'espressione simbolica
-    
-    // invocazione expr_builder
-    // scrittura memoria simbolica
-
     printf("ADDSS\n");
+
     SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
-    if (sorgente == NULL){
-        printf("la sorgente è concreta\n");
-    }
-    else{
-        printf("la sorgente è simbolica -> ");
-        printf("%s\n", _sym_expr_to_string(sorgente));
-    }
-
-
     SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
-    if (destinazione == NULL){
-        printf("la destinazione è concreta\n");
-    }
-    else{
-        printf("la destinazione è simbolica -> ");
-        printf("%s\n", _sym_expr_to_string(destinazione));
-    }
 
     
     // doppia simbolica: TODO
     // doppia concreta: TODO
+
     if (sorgente == NULL && destinazione != NULL){
+        printf("la sorgente è concreta\n");
         sorgente = _sym_build_floating_point((float) src->ZMM_L(0), 32);
         printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
     }
     else if (destinazione == NULL && sorgente != NULL){
+        printf("la destinazione è concreta\n");
         destinazione = _sym_build_floating_point((float) dst->ZMM_L(0), 32);
         printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
     }
 
 
     SymExpr res = _sym_build_addss(sorgente, destinazione);
-    printf("risultato -> %s\n", _sym_expr_to_string(res));
     _sym_write_memory((uint8_t*)dst, sizeof(int), res, true);
     destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
-    printf("conclusione addss -> %s\n", _sym_expr_to_string(destinazione));
+    printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(destinazione));
 }
 
 void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
 {
     printf("CVTSI2SS\n");
-    // se expr == NULL -> bisogna settare dst come concreta (tutti e 16 i byte)
+
     if (expr == NULL){
         printf("espressione ricevuta in ingresso alla cvtsi2ss concreta\n");
         _sym_write_memory((uint8_t*)dst, 4*sizeof(int), NULL, true);
     }
 
-    // se expr != NULL -> bisogna creare l'espressione simbolica che modella int_to_float
     else{
-        printf("espressione ricevuta in ingresso alla cvtsi2ss non concreta\n");
-        //printf("%s\n", _sym_expr_to_string(expr));
-        
+        printf("espressione ricevuta in ingresso alla cvtsi2ss non concreta -> %s\n", _sym_expr_to_string(expr));
         SymExpr symbolic = _sym_build_cvtsi2ss(expr);
-        if (symbolic == NULL){
-            //printf("c'è un errore in build cvtsi2ss\n");
-        }
-        else{
-            printf("generata espressione simbolica per la cvtsi2ss\n");
-            //printf("%s\n", _sym_expr_to_string(symbolic));
-            
-            // scrittura in memoria
-            _sym_write_memory((uint8_t*)dst, sizeof(int), symbolic, true);
-        }
+        _sym_write_memory((uint8_t*)dst, sizeof(int), symbolic, true);
+        symbolic = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+        printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(symbolic));
     }
+}
+
+void helper_sym_comiss(CPUX86State* env){
+    printf("COMISS\n");
 }
 /********************/
 
