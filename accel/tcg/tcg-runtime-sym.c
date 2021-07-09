@@ -167,7 +167,8 @@ void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
     }
 }
 
-void helper_sym_comiss(CPUX86State* env){
+void helper_sym_comiss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
+{
     printf("COMISS\n");
 }
 /********************/

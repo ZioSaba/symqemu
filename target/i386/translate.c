@@ -4477,7 +4477,7 @@ static void gen_sse(CPUX86State *env, DisasContext *s, int b,
                gen_helper_sym_addss(cpu_env, s->ptr0, s->ptr1);
             }
             else if (sse_fn_epp == gen_helper_comiss){
-               gen_helper_sym_comiss(cpu_env);
+               gen_helper_sym_comiss(cpu_env, s->ptr0, s->ptr1);
             }
             sse_fn_epp(cpu_env, s->ptr0, s->ptr1);
             break;
