@@ -170,6 +170,27 @@ void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
 void helper_sym_comiss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 {
     printf("COMISS\n");
+
+    
+    SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
+    SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+
+    if (sorgente == NULL && destinazione != NULL){
+        printf("la sorgente è concreta\n");
+        sorgente = _sym_build_floating_point((float) src->ZMM_L(0), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
+    }
+    else if (destinazione == NULL && sorgente != NULL){
+        printf("la destinazione è concreta\n");
+        destinazione = _sym_build_floating_point((float) dst->ZMM_L(0), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
+    }
+
+    SymExpr comiss = _sym_build_comiss(destinazione, sorgente);
+    printf("espressione comiss -> %s\n", _sym_expr_to_string(comiss));
+
 }
 /********************/
 
