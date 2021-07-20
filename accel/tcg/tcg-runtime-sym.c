@@ -192,7 +192,7 @@ void* helper_sym_comiss(ZMMReg* dst, ZMMReg* src){
 
     //SymExpr res = _sym_build_comiss(destinazione, sorgente);
     //printf("res -> %s\n", _sym_expr_to_string(res));
-    return _sym_build_comiss(destinazione, sorgente);
+    //return _sym_build_comiss(destinazione, sorgente);
 }
 /********************/
 

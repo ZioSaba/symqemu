@@ -53,6 +53,7 @@ DEF_HELPER_3(sym_addss, void, env, ZMMReg, ZMMReg)
 DEF_HELPER_3(sym_cvtsi2ss, void, env, ZMMReg, ptr)
 //DEF_HELPER_3(sym_comiss, void, env, ZMMReg, ZMMReg)
 DEF_HELPER_2(sym_comiss, ptr, ZMMReg, ZMMReg)
+//DEF_HELPER_FLAGS_2(sym_comiss, TCG_CALL_NO_SE, ptr, ZMMReg, ZMMReg)
 /********************/
 
 /* Shifts */
