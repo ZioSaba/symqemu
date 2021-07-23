@@ -190,9 +190,9 @@ void* helper_sym_comiss(ZMMReg* dst, ZMMReg* src){
         //printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
     }
 
-    //SymExpr res = _sym_build_comiss(destinazione, sorgente);
+    SymExpr res = _sym_build_comiss(destinazione, sorgente);
     //printf("res -> %s\n", _sym_expr_to_string(res));
-    //return _sym_build_comiss(destinazione, sorgente);
+    return res;
 }
 /********************/
 
