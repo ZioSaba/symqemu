@@ -120,7 +120,7 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 
 void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 {
-    printf("helper_sym_addss\n");
+    printf("\n*********helper_sym_addss*********\n");
 
     SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
     SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
@@ -151,7 +151,7 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 
 void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
 {
-    printf("helper_sym_cvtsi2ss\n");
+    printf("\n*********helper_sym_cvtsi2ss*********\n");
 
     if (expr == NULL){
         printf("espressione ricevuta in ingresso alla cvtsi2ss concreta\n");
@@ -169,7 +169,7 @@ void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
 
 void* helper_sym_comiss(ZMMReg* dst, ZMMReg* src){
 
-    printf("helper_sym_comiss\n");
+    printf("\n*********helper_sym_comiss*********\n");
 
     
     SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
@@ -191,7 +191,7 @@ void* helper_sym_comiss(ZMMReg* dst, ZMMReg* src){
     }
 
     SymExpr res = _sym_build_comiss(destinazione, sorgente);
-    printf("res -> %s\n", _sym_expr_to_string(res));
+    printf("res -> %s\n\n", _sym_expr_to_string(res));
     return res;
 }
 /********************/
