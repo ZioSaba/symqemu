@@ -131,13 +131,13 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
 
     if (sorgente == NULL && destinazione != NULL){
         printf("la sorgente è concreta\n");
-        sorgente = _sym_build_floating_point((float) src->ZMM_L(0), 32);
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
         printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
         printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
     }
     else if (destinazione == NULL && sorgente != NULL){
         printf("la destinazione è concreta\n");
-        destinazione = _sym_build_floating_point((float) dst->ZMM_L(0), 32);
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
         printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
         printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
     }
@@ -178,14 +178,14 @@ void* helper_sym_comiss(ZMMReg* dst, ZMMReg* src){
     
     if (sorgente == NULL && destinazione != NULL){
         printf("la sorgente è concreta\n");
-        sorgente = _sym_build_floating_point((float) src->ZMM_L(0), 32);
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
         printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
         printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
     }
     
     else if (destinazione == NULL && sorgente != NULL){
         printf("la destinazione è concreta\n");
-        destinazione = _sym_build_floating_point((float) dst->ZMM_L(0), 32);
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
         printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
         printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
     }
