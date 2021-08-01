@@ -3533,7 +3533,7 @@ static void gen_sse(CPUX86State *env, DisasContext *s, int b,
             if (ot == MO_32) {
                 SSEFunc_0_epi sse_fn_epi = sse_op_table3ai[(b >> 8) & 1];
                 tcg_gen_trunc_tl_i32(s->tmp2_i32, s->T0);
-                gen_helper_sym_cvtsi2ss(cpu_env, s->ptr0, tcgv_i32_expr(s->tmp2_i32));
+                gen_helper_sym_cvtsi2ss(s->ptr0, tcgv_i32_expr(s->tmp2_i32));
                 sse_fn_epi(cpu_env, s->ptr0, s->tmp2_i32);
             } else {
 #ifdef TARGET_X86_64
@@ -4474,7 +4474,7 @@ static void gen_sse(CPUX86State *env, DisasContext *s, int b,
             tcg_gen_addi_ptr(s->ptr0, cpu_env, op1_offset);
             tcg_gen_addi_ptr(s->ptr1, cpu_env, op2_offset);
             if(sse_fn_epp == gen_helper_addss){
-               gen_helper_sym_addss(cpu_env, s->ptr0, s->ptr1);
+               gen_helper_sym_addss(s->ptr0, s->ptr1);
             }
             else if (sse_fn_epp == gen_helper_comiss){
                //gen_helper_sym_comiss(cpu_env, s->ptr0, s->ptr1);

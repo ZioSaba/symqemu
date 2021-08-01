@@ -118,7 +118,7 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 
 /**** CODICE MIO ****/
 
-void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
+void helper_sym_addss(ZMMReg* dst, ZMMReg* src)
 {
     //printf("\n*********helper_sym_addss*********\n");
 
@@ -157,7 +157,7 @@ void helper_sym_addss(CPUX86State* env, ZMMReg* dst, ZMMReg* src)
     //printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(destinazione));
 }
 
-void helper_sym_cvtsi2ss(CPUX86State* env, ZMMReg* dst, void* expr)
+void helper_sym_cvtsi2ss(ZMMReg* dst, void* expr)
 {
     //printf("\n*********helper_sym_cvtsi2ss*********\n");
 
