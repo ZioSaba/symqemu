@@ -120,7 +120,7 @@ DEF_HELPER_BINARY(shift_left, shift_left)
 
 void helper_sym_addss(ZMMReg* dst, ZMMReg* src)
 {
-    //printf("\n*********helper_sym_addss*********\n");
+    printf("\n*********helper_sym_addss*********\n");
 
     SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
     SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
@@ -129,85 +129,202 @@ void helper_sym_addss(ZMMReg* dst, ZMMReg* src)
     // doppia simbolica: go through
 
     if (sorgente == NULL && destinazione == NULL){
-        //printf("la sorgente è concreta\n");
+        printf("la sorgente è concreta\n");
         sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
-        //printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
-        //printf("la destinazione è concreta\n");
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è concreta\n");
         destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
-        //printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
     }
 
     else if (sorgente == NULL && destinazione != NULL){
-        //printf("la sorgente è concreta\n");
+        printf("la sorgente è concreta\n");
         sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
-        //printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
-        //printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
     }
     else if (destinazione == NULL && sorgente != NULL){
-        //printf("la destinazione è concreta\n");
+        printf("la destinazione è concreta\n");
         destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
-        //printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
-        //printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
     }
 
 
     SymExpr res = _sym_build_addss(sorgente, destinazione);
     _sym_write_memory((uint8_t*)dst, sizeof(int), res, true);
     destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
-    //printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(destinazione));
+    printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(destinazione));
+}
+
+void helper_sym_subss(ZMMReg* dst, ZMMReg* src)
+{
+    printf("\n*********helper_sym_subss*********\n");
+
+    SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
+    SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+
+    
+    // doppia simbolica: go through
+
+    if (sorgente == NULL && destinazione == NULL){
+        printf("la sorgente è concreta\n");
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è concreta\n");
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+    }
+
+    else if (sorgente == NULL && destinazione != NULL){
+        printf("la sorgente è concreta\n");
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
+    }
+    else if (destinazione == NULL && sorgente != NULL){
+        printf("la destinazione è concreta\n");
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
+    }
+
+
+    SymExpr res = _sym_build_subss(sorgente, destinazione);
+    _sym_write_memory((uint8_t*)dst, sizeof(int), res, true);
+    destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+    printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(destinazione));
+}
+
+void helper_sym_mulss(ZMMReg* dst, ZMMReg* src)
+{
+    printf("\n*********helper_sym_mulss*********\n");
+
+    SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
+    SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+
+    
+    // doppia simbolica: go through
+
+    if (sorgente == NULL && destinazione == NULL){
+        printf("la sorgente è concreta\n");
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è concreta\n");
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+    }
+
+    else if (sorgente == NULL && destinazione != NULL){
+        printf("la sorgente è concreta\n");
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
+    }
+    else if (destinazione == NULL && sorgente != NULL){
+        printf("la destinazione è concreta\n");
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
+    }
+
+
+    SymExpr res = _sym_build_mulss(sorgente, destinazione);
+    _sym_write_memory((uint8_t*)dst, sizeof(int), res, true);
+    destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+    printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(destinazione));
+}
+
+void helper_sym_divss(ZMMReg* dst, ZMMReg* src)
+{
+    printf("\n*********helper_sym_divss*********\n");
+
+    SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
+    SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+
+    
+    // doppia simbolica: go through
+
+    if (sorgente == NULL && destinazione == NULL){
+        printf("la sorgente è concreta\n");
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è concreta\n");
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+    }
+
+    else if (sorgente == NULL && destinazione != NULL){
+        printf("la sorgente è concreta\n");
+        sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
+    }
+    else if (destinazione == NULL && sorgente != NULL){
+        printf("la destinazione è concreta\n");
+        destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
+    }
+
+
+    SymExpr res = _sym_build_divss(sorgente, destinazione);
+    _sym_write_memory((uint8_t*)dst, sizeof(int), res, true);
+    destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
+    printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(destinazione));
 }
 
 void helper_sym_cvtsi2ss(ZMMReg* dst, void* expr)
 {
-    //printf("\n*********helper_sym_cvtsi2ss*********\n");
+    printf("\n*********helper_sym_cvtsi2ss*********\n");
 
     if (expr == NULL){
-        //printf("espressione ricevuta in ingresso alla cvtsi2ss concreta\n");
+        printf("espressione ricevuta in ingresso alla cvtsi2ss concreta\n");
         _sym_write_memory((uint8_t*)dst, 4*sizeof(int), NULL, true);
     }
 
     else{
-        //printf("espressione ricevuta in ingresso alla cvtsi2ss non concreta -> %s\n", _sym_expr_to_string(expr));
+        printf("espressione ricevuta in ingresso alla cvtsi2ss non concreta -> %s\n", _sym_expr_to_string(expr));
         SymExpr symbolic = _sym_build_cvtsi2ss(expr);
         _sym_write_memory((uint8_t*)dst, sizeof(int), symbolic, true);
         symbolic = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
-        //printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(symbolic));
+        printf("nuovo contenuto della destinazione -> %s\n", _sym_expr_to_string(symbolic));
     }
 }
 
 void* helper_sym_comiss(ZMMReg* dst, ZMMReg* src){
 
-    //printf("\n*********helper_sym_comiss*********\n");
+    printf("\n*********helper_sym_comiss*********\n");
 
     
     SymExpr sorgente = _sym_read_memory((uint8_t*) src, sizeof(int), true);
     SymExpr destinazione = _sym_read_memory((uint8_t*) dst, sizeof(int), true);
 
     if (sorgente == NULL && destinazione == NULL){
-        //printf("la sorgente è concreta\n");
+        printf("la sorgente è concreta\n");
         sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
-        //printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
-        //printf("la destinazione è concreta\n");
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è concreta\n");
         destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
-        //printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
     }
     
     else if (sorgente == NULL && destinazione != NULL){
-        //printf("la sorgente è concreta\n");
+        printf("la sorgente è concreta\n");
         sorgente = _sym_build_floating_point(*((float*)&src->ZMM_L(0)), 32);
-        //printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
-        //printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
+        printf("nuova expr sorgente -> %s\n", _sym_expr_to_string(sorgente));
+        printf("la destinazione è simbolica -> %s\n", _sym_expr_to_string(destinazione));
     }
     
     else if (destinazione == NULL && sorgente != NULL){
-        //printf("la destinazione è concreta\n");
+        printf("la destinazione è concreta\n");
         destinazione = _sym_build_floating_point(*((float*)&dst->ZMM_L(0)), 32);
-        //printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
-        //printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
+        printf("nuova epxr destinazione -> %s\n", _sym_expr_to_string(destinazione));
+        printf("la sorgente è simbolica -> %s\n", _sym_expr_to_string(sorgente));
     }
 
     SymExpr res = _sym_build_comiss(destinazione, sorgente);
-    //printf("res -> %s\n\n", _sym_expr_to_string(res));
+    printf("res -> %s\n\n", _sym_expr_to_string(res));
     return res;
 }
 /********************/

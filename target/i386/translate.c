@@ -4474,7 +4474,16 @@ static void gen_sse(CPUX86State *env, DisasContext *s, int b,
             tcg_gen_addi_ptr(s->ptr0, cpu_env, op1_offset);
             tcg_gen_addi_ptr(s->ptr1, cpu_env, op2_offset);
             if(sse_fn_epp == gen_helper_addss){
-               gen_helper_sym_addss(s->ptr0, s->ptr1);
+                gen_helper_sym_addss(s->ptr0, s->ptr1);
+            }
+            else if (sse_fn_epp == gen_helper_subss){
+                gen_helper_sym_subss(s->ptr0, s->ptr1);
+            }
+            else if (sse_fn_epp == gen_helper_mulss){
+                gen_helper_sym_mulss(s->ptr0, s->ptr1);
+            }
+            else if (sse_fn_epp == gen_helper_divss){
+                gen_helper_sym_divss(s->ptr0, s->ptr1);
             }
             else if (sse_fn_epp == gen_helper_comiss){
                //gen_helper_sym_comiss(cpu_env, s->ptr0, s->ptr1);
